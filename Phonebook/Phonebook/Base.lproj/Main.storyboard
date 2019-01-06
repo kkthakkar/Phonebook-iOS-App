@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A201w" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="d85-xK-xSg">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="unwindToContactList" id="BYZ-38-t0r" customClass="ViewController" customModule="Phonebook" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="     Contacts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGI-HE-iqN">
+                                <color key="backgroundColor" red="0.23921568627450979" green="0.39215686274509803" blue="0.81176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="8Hk-kb-pl1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Oir-KR-xWn">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="myCell" id="oIw-3Y-5DR">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oIw-3Y-5DR" id="zNK-Ex-FeP">
+                                            <frame key="frameInset" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Z7j-BX-VyG" kind="show" identifier="contactDetailSegue" id="Nvy-d0-2Ku"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="mBU-LL-qID"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ezN-vu-SVZ"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="122-JH-sxD">
+                                <color key="backgroundColor" red="0.97254901960784312" green="0.0039215686274509803" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="DjT-Q9-OUy"/>
+                                    <constraint firstAttribute="height" constant="50" id="VUu-8L-7kU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="30"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="3"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="df1-yl-8nd" kind="presentation" identifier="addContactSegue" id="3Ir-I6-lAr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="122-JH-sxD" secondAttribute="bottom" constant="10" id="ByU-d9-Qpo"/>
+                            <constraint firstAttribute="trailing" secondItem="122-JH-sxD" secondAttribute="trailing" constant="10" id="Jr3-BZ-sxw"/>
+                            <constraint firstItem="Oir-KR-xWn" firstAttribute="top" secondItem="XGI-HE-iqN" secondAttribute="bottom" id="JrD-qT-JCV"/>
+                            <constraint firstAttribute="trailing" secondItem="Oir-KR-xWn" secondAttribute="trailing" id="LOe-ao-YU8"/>
+                            <constraint firstAttribute="trailing" secondItem="XGI-HE-iqN" secondAttribute="trailing" id="gbf-a4-WI7"/>
+                            <constraint firstItem="Oir-KR-xWn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hIA-ee-GFb"/>
+                            <constraint firstItem="XGI-HE-iqN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="j5w-WB-9K4"/>
+                            <constraint firstItem="XGI-HE-iqN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uAX-PD-dsQ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Oir-KR-xWn" secondAttribute="bottom" id="wWE-wx-Ij8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="A1g-V5-pwk"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="tableViewData" destination="Oir-KR-xWn" id="Gh3-2s-j8N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="AFB-Yf-OLL" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1057" y="152"/>
+        </scene>
+        <!--Add ContactsVC-->
+        <scene sceneID="eVX-bb-yu7">
+            <objects>
+                <viewController storyboardIdentifier="AddContactsVC" id="df1-yl-8nd" customClass="AddContactsVC" customModule="Phonebook" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="c7q-th-6TB"/>
+                        <viewControllerLayoutGuide type="bottom" id="yN4-eV-lcw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VBK-gF-dVW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add new contact" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEG-Ga-ktc">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="mru-aV-gya"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slB-OY-yeC">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="5u0-jl-YWM"/>
+                                    <constraint firstAttribute="height" constant="40" id="IQL-QI-VKe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="buttonDone:" destination="df1-yl-8nd" eventType="touchUpInside" id="mLK-b1-hyQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rmo-BQ-ema">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="K7Q-x1-mlU"/>
+                                    <constraint firstAttribute="height" constant="40" id="iTq-U9-Ttv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="buttonCancel:" destination="df1-yl-8nd" eventType="touchUpInside" id="UYV-GB-Tgb"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wl9-rp-HfS">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="VpK-0C-6R6"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xAI-b7-ABJ">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="5FZ-QA-5w4"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="xAI-b7-ABJ" secondAttribute="trailing" constant="20" id="4RC-tb-HcI"/>
+                            <constraint firstItem="xAI-b7-ABJ" firstAttribute="leading" secondItem="VBK-gF-dVW" secondAttribute="leading" constant="20" id="5od-RD-Myf"/>
+                            <constraint firstItem="Wl9-rp-HfS" firstAttribute="leading" secondItem="VBK-gF-dVW" secondAttribute="leading" constant="20" id="D1H-VW-r3U"/>
+                            <constraint firstItem="HEG-Ga-ktc" firstAttribute="top" secondItem="c7q-th-6TB" secondAttribute="bottom" id="EDL-qJ-Itq"/>
+                            <constraint firstItem="Rmo-BQ-ema" firstAttribute="leading" secondItem="VBK-gF-dVW" secondAttribute="leading" constant="10" id="FqL-g7-CHO"/>
+                            <constraint firstItem="Wl9-rp-HfS" firstAttribute="top" secondItem="HEG-Ga-ktc" secondAttribute="bottom" constant="50" id="Koc-lD-3JW"/>
+                            <constraint firstItem="Rmo-BQ-ema" firstAttribute="centerY" secondItem="HEG-Ga-ktc" secondAttribute="centerY" id="MTH-Ec-YlH"/>
+                            <constraint firstAttribute="trailing" secondItem="slB-OY-yeC" secondAttribute="trailing" constant="10" id="NDX-Fm-e10"/>
+                            <constraint firstItem="slB-OY-yeC" firstAttribute="centerY" secondItem="HEG-Ga-ktc" secondAttribute="centerY" id="T1p-ho-HMu"/>
+                            <constraint firstItem="HEG-Ga-ktc" firstAttribute="leading" secondItem="VBK-gF-dVW" secondAttribute="leading" id="TT6-MO-rif"/>
+                            <constraint firstAttribute="trailing" secondItem="Wl9-rp-HfS" secondAttribute="trailing" constant="20" id="n5q-Jf-SDw"/>
+                            <constraint firstItem="xAI-b7-ABJ" firstAttribute="top" secondItem="Wl9-rp-HfS" secondAttribute="bottom" constant="10" id="q7I-1c-qWg"/>
+                            <constraint firstAttribute="trailing" secondItem="HEG-Ga-ktc" secondAttribute="trailing" id="xXW-aP-eIR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="labelTitle" destination="HEG-Ga-ktc" id="0G8-Ld-gjI"/>
+                        <outlet property="textFname" destination="Wl9-rp-HfS" id="Kqf-Zk-iKw"/>
+                        <outlet property="textPhone" destination="xAI-b7-ABJ" id="MlI-Pm-45I"/>
+                        <segue destination="AFB-Yf-OLL" kind="unwind" identifier="unwindToContactList" unwindAction="unwindToContactListWithSegue:" id="vPW-LV-zAr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YU5-Ez-1Nk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2545" y="-251"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="AM6-Ao-KSu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="d85-xK-xSg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="r4h-Cp-53r">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="EU1-os-Mm5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kPY-oc-9zY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="168.80000000000001" y="151.57421289355324"/>
+        </scene>
+        <!--Contact-->
+        <scene sceneID="cY1-9X-QcG">
+            <objects>
+                <viewController id="OOp-KU-o2x" customClass="ContactDetailsVC" customModule="Phonebook" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="feP-u6-oei"/>
+                        <viewControllerLayoutGuide type="bottom" id="Pdo-ZB-IQE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="beZ-pZ-fRG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCx-m1-2my">
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Jz-ws-C9Z">
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="987-654-3210" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqh-fk-Ule">
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lX-yT-Mb2">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="VcR-yX-xTk"/>
+                                    <constraint firstAttribute="height" constant="44" id="eDA-CK-c5G"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                <state key="normal" title="Delete Contact"/>
+                                <connections>
+                                    <action selector="deleteContact:" destination="OOp-KU-o2x" eventType="touchUpInside" id="VuV-dH-hyo"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAy-Wa-p13">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="dRK-YP-qtS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jj6-DQ-0zK">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="gU5-Bz-Qe9"/>
+                                    <constraint firstAttribute="height" constant="40" id="wgK-uK-mqP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <segue destination="df1-yl-8nd" kind="presentation" identifier="editContact" id="jHh-8l-CVT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCx-AO-72V">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="NpM-e4-Vnz"/>
+                                    <constraint firstAttribute="width" constant="60" id="W1H-1k-JS6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="buttonDone:" destination="OOp-KU-o2x" eventType="touchUpInside" id="Una-5V-cgP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Jj6-DQ-0zK" firstAttribute="leading" secondItem="beZ-pZ-fRG" secondAttribute="leading" constant="10" id="2eX-ha-M1G"/>
+                            <constraint firstItem="2Jz-ws-C9Z" firstAttribute="top" secondItem="NCx-m1-2my" secondAttribute="bottom" constant="50" id="4Ai-ja-qNn"/>
+                            <constraint firstItem="8lX-yT-Mb2" firstAttribute="trailing" secondItem="beZ-pZ-fRG" secondAttribute="trailingMargin" id="4hk-5h-Yhe"/>
+                            <constraint firstItem="lqh-fk-Ule" firstAttribute="top" secondItem="NCx-m1-2my" secondAttribute="bottom" constant="50" id="5iO-Pq-R9i"/>
+                            <constraint firstAttribute="trailing" secondItem="cAy-Wa-p13" secondAttribute="trailing" id="C83-TA-SbE"/>
+                            <constraint firstAttribute="trailing" secondItem="PCx-AO-72V" secondAttribute="trailing" constant="10" id="E93-dE-zrz"/>
+                            <constraint firstItem="NCx-m1-2my" firstAttribute="top" secondItem="cAy-Wa-p13" secondAttribute="bottom" constant="30" id="Ov4-3N-bDQ"/>
+                            <constraint firstItem="2Jz-ws-C9Z" firstAttribute="leading" secondItem="beZ-pZ-fRG" secondAttribute="leadingMargin" id="WFa-9S-kJo"/>
+                            <constraint firstItem="cAy-Wa-p13" firstAttribute="top" secondItem="feP-u6-oei" secondAttribute="bottom" id="Y94-dR-YG3"/>
+                            <constraint firstItem="Pdo-ZB-IQE" firstAttribute="top" secondItem="8lX-yT-Mb2" secondAttribute="bottom" constant="20" id="Zdb-VR-9FP"/>
+                            <constraint firstItem="NCx-m1-2my" firstAttribute="trailing" secondItem="beZ-pZ-fRG" secondAttribute="trailingMargin" id="cjT-bR-r3M"/>
+                            <constraint firstItem="lqh-fk-Ule" firstAttribute="leading" secondItem="2Jz-ws-C9Z" secondAttribute="trailing" constant="8" id="fFm-Y5-Fh2"/>
+                            <constraint firstItem="NCx-m1-2my" firstAttribute="leading" secondItem="beZ-pZ-fRG" secondAttribute="leadingMargin" id="fMq-nq-2M6"/>
+                            <constraint firstItem="Jj6-DQ-0zK" firstAttribute="centerY" secondItem="cAy-Wa-p13" secondAttribute="centerY" id="flD-r7-AcT"/>
+                            <constraint firstItem="PCx-AO-72V" firstAttribute="centerY" secondItem="cAy-Wa-p13" secondAttribute="centerY" id="hwk-ww-v7C"/>
+                            <constraint firstItem="lqh-fk-Ule" firstAttribute="trailing" secondItem="beZ-pZ-fRG" secondAttribute="trailingMargin" id="oC5-Uw-0lM"/>
+                            <constraint firstItem="cAy-Wa-p13" firstAttribute="leading" secondItem="beZ-pZ-fRG" secondAttribute="leading" id="zqz-ZD-kUO"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Contact" id="RrW-In-E9Z">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="JdY-Sp-MRJ">
+                            <connections>
+                                <action selector="done:" destination="OOp-KU-o2x" id="xgh-w5-svr"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="r05-lp-N2L"/>
+                    </navigationItem>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="labelFName" destination="NCx-m1-2my" id="FzY-qt-c7q"/>
+                        <outlet property="labelNumber" destination="lqh-fk-Ule" id="Vt9-fG-UvE"/>
+                        <segue destination="gy5-BR-Xeu" kind="unwind" identifier="unwindToContactList" unwindAction="unwindToContactListWithSegue:" id="sPR-ND-k9g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f9K-tl-Syg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="gy5-BR-Xeu" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2769" y="675"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="uYB-qj-8xK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Z7j-BX-VyG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TOK-QP-0ws">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OOp-KU-o2x" kind="relationship" relationship="rootViewController" id="Sph-Qm-A5T"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5sB-oe-WGO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1938" y="657"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="jHh-8l-CVT"/>
+    </inferredMetricsTieBreakers>
+</document>

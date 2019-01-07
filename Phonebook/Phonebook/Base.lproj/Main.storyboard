@@ -151,19 +151,30 @@
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f5V-Hm-WFk">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="8dt-J6-Dua"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="xAI-b7-ABJ" secondAttribute="trailing" constant="20" id="4RC-tb-HcI"/>
                             <constraint firstItem="xAI-b7-ABJ" firstAttribute="leading" secondItem="VBK-gF-dVW" secondAttribute="leading" constant="20" id="5od-RD-Myf"/>
+                            <constraint firstItem="f5V-Hm-WFk" firstAttribute="leading" secondItem="VBK-gF-dVW" secondAttribute="leading" constant="20" id="9gH-tW-z5s"/>
                             <constraint firstItem="Wl9-rp-HfS" firstAttribute="leading" secondItem="VBK-gF-dVW" secondAttribute="leading" constant="20" id="D1H-VW-r3U"/>
                             <constraint firstItem="HEG-Ga-ktc" firstAttribute="top" secondItem="c7q-th-6TB" secondAttribute="bottom" id="EDL-qJ-Itq"/>
                             <constraint firstItem="Rmo-BQ-ema" firstAttribute="leading" secondItem="VBK-gF-dVW" secondAttribute="leading" constant="10" id="FqL-g7-CHO"/>
+                            <constraint firstItem="f5V-Hm-WFk" firstAttribute="top" secondItem="xAI-b7-ABJ" secondAttribute="bottom" constant="10" id="Jd0-BJ-E3j"/>
                             <constraint firstItem="Wl9-rp-HfS" firstAttribute="top" secondItem="HEG-Ga-ktc" secondAttribute="bottom" constant="50" id="Koc-lD-3JW"/>
                             <constraint firstItem="Rmo-BQ-ema" firstAttribute="centerY" secondItem="HEG-Ga-ktc" secondAttribute="centerY" id="MTH-Ec-YlH"/>
                             <constraint firstAttribute="trailing" secondItem="slB-OY-yeC" secondAttribute="trailing" constant="10" id="NDX-Fm-e10"/>
                             <constraint firstItem="slB-OY-yeC" firstAttribute="centerY" secondItem="HEG-Ga-ktc" secondAttribute="centerY" id="T1p-ho-HMu"/>
                             <constraint firstItem="HEG-Ga-ktc" firstAttribute="leading" secondItem="VBK-gF-dVW" secondAttribute="leading" id="TT6-MO-rif"/>
+                            <constraint firstAttribute="trailing" secondItem="f5V-Hm-WFk" secondAttribute="trailing" constant="20" id="ljn-al-x41"/>
                             <constraint firstAttribute="trailing" secondItem="Wl9-rp-HfS" secondAttribute="trailing" constant="20" id="n5q-Jf-SDw"/>
                             <constraint firstItem="xAI-b7-ABJ" firstAttribute="top" secondItem="Wl9-rp-HfS" secondAttribute="bottom" constant="10" id="q7I-1c-qWg"/>
                             <constraint firstAttribute="trailing" secondItem="HEG-Ga-ktc" secondAttribute="trailing" id="xXW-aP-eIR"/>
@@ -171,6 +182,7 @@
                     </view>
                     <connections>
                         <outlet property="labelTitle" destination="HEG-Ga-ktc" id="0G8-Ld-gjI"/>
+                        <outlet property="textEmail" destination="f5V-Hm-WFk" id="DsQ-vv-KBy"/>
                         <outlet property="textFname" destination="Wl9-rp-HfS" id="Kqf-Zk-iKw"/>
                         <outlet property="textPhone" destination="xAI-b7-ABJ" id="MlI-Pm-45I"/>
                         <segue destination="AFB-Yf-OLL" kind="unwind" identifier="unwindToContactList" unwindAction="unwindToContactListWithSegue:" id="vPW-LV-zAr"/>
@@ -221,7 +233,17 @@
                                 <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="987-654-3210" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqh-fk-Ule">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sXG-oX-Vgl">
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="987-654-3210" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqh-fk-Ule">
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="abc@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoL-5z-kcm">
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -267,16 +289,31 @@
                                     <action selector="buttonDone:" destination="OOp-KU-o2x" eventType="touchUpInside" id="Una-5V-cgP"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cES-ba-CMp">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="6Ea-Fc-sGr"/>
+                                    <constraint firstAttribute="width" constant="35" id="OTT-bB-8m4"/>
+                                </constraints>
+                                <state key="normal" image="call"/>
+                                <connections>
+                                    <action selector="buttonCall:" destination="OOp-KU-o2x" eventType="touchUpInside" id="oZD-cN-vvZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="2Jz-ws-C9Z" firstAttribute="top" secondItem="cES-ba-CMp" secondAttribute="bottom" constant="20" id="1j1-PS-cVW"/>
                             <constraint firstItem="Jj6-DQ-0zK" firstAttribute="leading" secondItem="beZ-pZ-fRG" secondAttribute="leading" constant="10" id="2eX-ha-M1G"/>
-                            <constraint firstItem="2Jz-ws-C9Z" firstAttribute="top" secondItem="NCx-m1-2my" secondAttribute="bottom" constant="50" id="4Ai-ja-qNn"/>
+                            <constraint firstItem="2Jz-ws-C9Z" firstAttribute="top" secondItem="NCx-m1-2my" secondAttribute="bottom" constant="70" id="4Ai-ja-qNn"/>
                             <constraint firstItem="8lX-yT-Mb2" firstAttribute="trailing" secondItem="beZ-pZ-fRG" secondAttribute="trailingMargin" id="4hk-5h-Yhe"/>
-                            <constraint firstItem="lqh-fk-Ule" firstAttribute="top" secondItem="NCx-m1-2my" secondAttribute="bottom" constant="50" id="5iO-Pq-R9i"/>
+                            <constraint firstItem="HoL-5z-kcm" firstAttribute="top" secondItem="lqh-fk-Ule" secondAttribute="bottom" constant="20" id="5cW-iQ-kP0"/>
+                            <constraint firstItem="lqh-fk-Ule" firstAttribute="top" secondItem="NCx-m1-2my" secondAttribute="bottom" constant="70" id="5iO-Pq-R9i"/>
                             <constraint firstAttribute="trailing" secondItem="cAy-Wa-p13" secondAttribute="trailing" id="C83-TA-SbE"/>
+                            <constraint firstItem="sXG-oX-Vgl" firstAttribute="leading" secondItem="beZ-pZ-fRG" secondAttribute="leadingMargin" id="Dc1-qw-6Ww"/>
                             <constraint firstAttribute="trailing" secondItem="PCx-AO-72V" secondAttribute="trailing" constant="10" id="E93-dE-zrz"/>
+                            <constraint firstItem="cES-ba-CMp" firstAttribute="centerX" secondItem="beZ-pZ-fRG" secondAttribute="centerX" id="NYk-cN-De0"/>
                             <constraint firstItem="NCx-m1-2my" firstAttribute="top" secondItem="cAy-Wa-p13" secondAttribute="bottom" constant="30" id="Ov4-3N-bDQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HoL-5z-kcm" secondAttribute="trailing" id="Qzk-8I-WCI"/>
                             <constraint firstItem="2Jz-ws-C9Z" firstAttribute="leading" secondItem="beZ-pZ-fRG" secondAttribute="leadingMargin" id="WFa-9S-kJo"/>
                             <constraint firstItem="cAy-Wa-p13" firstAttribute="top" secondItem="feP-u6-oei" secondAttribute="bottom" id="Y94-dR-YG3"/>
                             <constraint firstItem="Pdo-ZB-IQE" firstAttribute="top" secondItem="8lX-yT-Mb2" secondAttribute="bottom" constant="20" id="Zdb-VR-9FP"/>
@@ -285,7 +322,9 @@
                             <constraint firstItem="NCx-m1-2my" firstAttribute="leading" secondItem="beZ-pZ-fRG" secondAttribute="leadingMargin" id="fMq-nq-2M6"/>
                             <constraint firstItem="Jj6-DQ-0zK" firstAttribute="centerY" secondItem="cAy-Wa-p13" secondAttribute="centerY" id="flD-r7-AcT"/>
                             <constraint firstItem="PCx-AO-72V" firstAttribute="centerY" secondItem="cAy-Wa-p13" secondAttribute="centerY" id="hwk-ww-v7C"/>
+                            <constraint firstItem="HoL-5z-kcm" firstAttribute="leading" secondItem="sXG-oX-Vgl" secondAttribute="trailing" constant="8" id="jj4-vM-Yt5"/>
                             <constraint firstItem="lqh-fk-Ule" firstAttribute="trailing" secondItem="beZ-pZ-fRG" secondAttribute="trailingMargin" id="oC5-Uw-0lM"/>
+                            <constraint firstItem="sXG-oX-Vgl" firstAttribute="top" secondItem="2Jz-ws-C9Z" secondAttribute="bottom" constant="20" id="v38-Ep-rDJ"/>
                             <constraint firstItem="cAy-Wa-p13" firstAttribute="leading" secondItem="beZ-pZ-fRG" secondAttribute="leading" id="zqz-ZD-kUO"/>
                         </constraints>
                     </view>
@@ -299,6 +338,7 @@
                     </navigationItem>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="labelEmail" destination="HoL-5z-kcm" id="nvh-oN-bkI"/>
                         <outlet property="labelFName" destination="NCx-m1-2my" id="FzY-qt-c7q"/>
                         <outlet property="labelNumber" destination="lqh-fk-Ule" id="Vt9-fG-UvE"/>
                         <segue destination="gy5-BR-Xeu" kind="unwind" identifier="unwindToContactList" unwindAction="unwindToContactListWithSegue:" id="sPR-ND-k9g"/>
@@ -329,6 +369,9 @@
             <point key="canvasLocation" x="1938" y="657"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="call" width="32" height="32"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="jHh-8l-CVT"/>
     </inferredMetricsTieBreakers>

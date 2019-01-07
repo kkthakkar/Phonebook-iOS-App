@@ -18,16 +18,37 @@ class ContactDetailsVC : UIViewController {
 
     @IBOutlet weak var labelFName: UILabel!
     @IBOutlet weak var labelNumber: UILabel!
+    @IBOutlet weak var labelEmail: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         labelFName.text = contact?.value(forKey:"name") as? String
         labelNumber.text = contact?.value(forKey:"phoneNumber") as? String
+        labelEmail.text = contact?.value(forKey: "email") as? String
+ 
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+        
+        if gesture.direction == UISwipeGestureRecognizerDirection.right {
+            perform(#selector(buttonDone(_:)), with: nil, afterDelay: 0.1)
+        }
+    }
+    
+    // MARK:- Button Actions
+    
+    @IBAction func buttonCall(_ sender: AnyObject) {
+    
+        if let url = URL(string: "tel://\(labelNumber.text)"), UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
     }
     
     @IBAction func buttonDone(_ sender: AnyObject) {
@@ -36,7 +57,7 @@ class ContactDetailsVC : UIViewController {
 
     @IBAction func deleteContact(_ sender: Any) {
 
-        let alert = UIAlertController(title: "", message: "Are you sure want to delete this contact ?", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Alert", message: "Are you sure want to delete this contact ?", preferredStyle: UIAlertControllerStyle.alert)
         
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
         

@@ -39,13 +39,14 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         }
     }
     
-    func save(name: String, phoneNumber: String) {
+    func save(name: String, phoneNumber: String, email: String) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedObjectContext = appDelegate.persistentContainer.viewContext
         guard let entity = NSEntityDescription.entity(forEntityName:"Contact", in: managedObjectContext) else { return }
         let contact = NSManagedObject(entity: entity, insertInto: managedObjectContext)
         contact.setValue(name, forKey: "name")
         contact.setValue(phoneNumber, forKey: "phoneNumber")
+        contact.setValue(email, forKey: "email")
         do {
             try managedObjectContext.save()
             self.contacts.append(contact)
@@ -54,12 +55,13 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         }
     }
     
-    func update(indexPath: IndexPath, name:String, phoneNumber: String) {
+    func update(indexPath: IndexPath, name:String, phoneNumber: String, email: String) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedObjectContext = appDelegate.persistentContainer.viewContext
         let contact = contacts[indexPath.row]
         contact.setValue(name, forKey:"name")
         contact.setValue(phoneNumber, forKey: "phoneNumber")
+        contact.setValue(email, forKey: "email")
         do {
             try managedObjectContext.save()
             contacts[indexPath.row] = contact
@@ -99,12 +101,12 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
     //Unwind segue
     @IBAction func unwindToContactList(segue: UIStoryboardSegue) {
         if let viewController = segue.source as? AddContactsVC {
-            guard let name: String = viewController.textFname.text, let phoneNumber: String = viewController.textPhone.text else { return }
+            guard let name: String = viewController.textFname.text, let phoneNumber: String = viewController.textPhone.text, let email:String = viewController.textEmail.text else { return }
             if name != "" && phoneNumber != "" {
                 if let indexPath = viewController.indexPathForContact {
-                    update(indexPath: indexPath, name: name, phoneNumber: phoneNumber)
+                    update(indexPath: indexPath, name: name, phoneNumber: phoneNumber, email: email)
                 } else {
-                    save(name:name, phoneNumber:phoneNumber)
+                    save(name:name, phoneNumber:phoneNumber, email: email)
                 }
             }
             tableViewData.reloadData()
